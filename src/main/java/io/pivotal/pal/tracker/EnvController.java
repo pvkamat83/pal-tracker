@@ -16,7 +16,10 @@ public class EnvController {
     public String cf_instnce;
     public String address;
 
-    public EnvController(@Value("${PORT:NOT_SET}") String port,@Value("${MEMORY_LIMIT:NOT_SET}")  String mem, @Value("${CF_INSTANCE_INDEX:NOT_SET}") String cf_instnce,@Value("${CF_INSTANCE_ADDR:NOT_SET}") String address){
+    public EnvController(@Value("${PORT:NOT_SET}") String port,
+                         @Value("${MEMORY_LIMIT:NOT_SET}")  String mem,
+                         @Value("${CF_INSTANCE_INDEX:NOT_SET}") String cf_instnce,
+                         @Value("${CF_INSTANCE_ADDR:NOT_SET}") String address){
         this.port = port;
         this.mem = mem;
         this.cf_instnce = cf_instnce;
