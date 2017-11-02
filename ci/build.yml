@@ -21,4 +21,5 @@ run:
     cd pal-tracker
     chmod +x gradlew
     ./gradlew -P version=$(cat ../version/number) build
+    ls -lrt build/libs/pal-tracker.jar
     cp build/libs/pal-tracker.jar ../build-output
