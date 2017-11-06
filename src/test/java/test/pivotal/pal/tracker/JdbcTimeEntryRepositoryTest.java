@@ -30,8 +30,6 @@ public class JdbcTimeEntryRepositoryTest {
 
         jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.execute("DELETE FROM time_entries");
-
-      //  TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
 
     @Test
