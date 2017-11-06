@@ -24,20 +24,26 @@ public class SecurityApiTest {
     private String port;
     private TestRestTemplate authorizedRestTemplate;
 
-    @Autowired
     private TestRestTemplate unAuthorizedRestTemplate;
 
     @Before
     public void setUp() throws Exception {
         RestTemplateBuilder builder = new RestTemplateBuilder()
-            .rootUri("http://localhost:" + port)
-            .basicAuthorization("user", "password");
+                .rootUri("http://localhost:" + port)
+                .basicAuthorization("user", "password");
 
         authorizedRestTemplate = new TestRestTemplate(builder);
+
+        RestTemplateBuilder builder1 = new RestTemplateBuilder()
+                .rootUri("http://localhost:" + port)
+                .basicAuthorization(" ", " ");
+
+        unAuthorizedRestTemplate = new TestRestTemplate(builder1);
     }
 
     @Test
     public void unauthorizedTest() {
+
         ResponseEntity<String> response = this.unAuthorizedRestTemplate.getForEntity("/", String.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
